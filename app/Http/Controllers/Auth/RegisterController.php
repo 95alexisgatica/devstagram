@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -33,5 +34,9 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' =>Hash::make($request->password)
         ]);
+
+        Auth::attempt($request->only('email', 'password'));
+
+        return redirect()->route('posts.index')->with('success', 'Cuenta creada correctamente, ahora puedes iniciar sesión');
     }
 }
