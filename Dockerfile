@@ -1,4 +1,4 @@
-# Imagen base PHP 8.2 con FPM
+# Usa una imagen base oficial de PHP 8.2 con FPM
 FROM php:8.2-fpm
 
 # Instala dependencias del sistema
@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     sqlite3 \
     libsqlite3-dev \
-    && docker-php-ext-install pdo pdo_mysql pdo_sqlite mbstring zip exif pcntl
+    libpq-dev && \
+    docker-php-ext-install pdo pdo_mysql pdo_sqlite pdo_pgsql mbstring zip exif pcntl
 
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
