@@ -1,5 +1,3 @@
-version: '3.9'  # Esta línea es opcional, pero recomendable para versión de sintaxis
-
 services:
   app:
     build:
