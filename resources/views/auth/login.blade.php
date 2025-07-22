@@ -58,6 +58,11 @@
                         </p>
                     @enderror 
                 </div>
+
+                <div class="mb-5">
+                    <input type="checkbox" name="remember" id=""> <label for="" class="text-gray-500 text-sm"></label> Mantener la sesión abierta
+                </div>
+
                 <input type="submit"
                     value="Iniciar Sesion"
                     class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer uppercase font-bold rounded-lg p-3 text-white w-full">                                
